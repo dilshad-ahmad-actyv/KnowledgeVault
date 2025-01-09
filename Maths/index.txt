@@ -1,0 +1,15 @@
+Maths for ML
+1. Linear Algebra
+2. Calculus
+3. Statistics
+4. Probability and Statistics
+5. Linear Regression
+6. Logistic Regression
+7. Decision Trees and Random Forests
+8. Support Vector Machines
+
+
+Linear Algebra
+ - Vectors and Matrices
+ - Transpose
+ - distance - euclidean distance
