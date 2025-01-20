@@ -91,3 +91,36 @@
 #     print(i)
 #     i += 1
 
+# class Person:
+#     def __init__(self, firstName, lastName):
+#         self.firstName = firstName
+#         self.lastName = lastName
+    
+#     def __str__(self):
+#         return f'{self.firstName} {self.lastName}'
+    
+    
+# class Student(Person):
+#     def __init__(self, firstName, lastName):
+#         super().__init__(firstName, lastName)
+        
+
+# student1 = Student('Dilshad', 'Ahmad')
+
+# print(student1)
+
+
+class Person:
+  def __init__(self, fname, lname):
+    self.firstname = fname
+    self.lastname = lname
+
+  def printname(self):
+    print(self.firstname, self.lastname)
+
+class Student(Person):
+  def __init__(self, fname, lname):
+     Person.__init__(self, fname, lname)
+     
+x = Student("Mike", "Olsen")
+x.printname()
