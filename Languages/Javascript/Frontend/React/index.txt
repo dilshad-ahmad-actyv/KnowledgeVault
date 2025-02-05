@@ -1,7 +1,7 @@
 1. What is Reactjs? advantages and limitations, alternatives
 2. Rendering - client side and server side
 3. DOM vs VDOM - Diffing algorith, Batch updates
-4. life cycle - render/mount/paint
+4. life cycle - render/mount/paint/unmount
 5. side effects in react
 6. Memory Leak
 7. JSX
