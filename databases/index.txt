@@ -1,0 +1,8 @@
+1. what is database and its evolution history?.
+2. type of database
+3. GPU vs CPU
+4. comparison between the different type of database based on the usecases
+5. SQL vs NoSQL
+6. Memory Management
+7. Database Management
+8. Optimization

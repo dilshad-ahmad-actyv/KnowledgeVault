@@ -1,0 +1,7 @@
+1. what is mysql database. its history.
+2. RDBMS
+3. SQL
+4. RDBMS vs SQL vs Database
+5. its pros and cons
+6. what is database, table, column and row
+7.
