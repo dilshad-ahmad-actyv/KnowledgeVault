@@ -37,7 +37,9 @@
 37. functional vs class Components
 38. VDOM and how it works? what algoriths ?
 39. React Router*
-40. Name a few techniques to optimize React app performance.*
+40. Name a few techniques to optimize React app performance.* || Best practices for React performance optimization?
 41. Advanced Reactjs Questions - https://www.interviewbit.com/react-interview-questions/#name-few-techniques-to-optimize-react-app-performance
 42. Declarative vs imperative programming
 43. Debouncing & throttling
+44. When building a **large-scale React application**, it's crucial to follow **structured principles** for component architecture, state management, and performance optimization.
+45. 

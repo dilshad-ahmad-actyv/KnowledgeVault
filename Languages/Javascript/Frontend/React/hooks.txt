@@ -14,7 +14,8 @@
  13. useSyncExternalStore
  14. useTransition
  15. Custom hooks
- 16. lazy
+ 16. lazy, Suspense
  17. forwardRef
  18. Context API
  19. memo
+ 20. React Query and Why Use React Query?
