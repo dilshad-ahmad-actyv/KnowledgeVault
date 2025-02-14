@@ -6,14 +6,21 @@ E-Commerce App
  │    ├── Modal.js
  │    ├── Input.js
  ├── 📁 features/          # Feature-based modularization
+ │    ├── 📁 Profile/
+ │    │    ├── index.js
+ │    │    ├── ProfilePage.js
+ │    │    ├── ProfileSettings.js
  │    ├── 📁 Products/
+ │    │    ├── index.js
  │    │    ├── ProductList.js
  │    │    ├── ProductDetails.js
  │    │    ├── ProductCard.js
  │    ├── 📁 Cart/
+ │    │    ├── index.js
  │    │    ├── CartPage.js
  │    │    ├── CartItem.js
  │    ├── 📁 Auth/
+ │    │    ├── index.js
  │    │    ├── Login.js
  │    │    ├── Signup.js
  ├── 📁 hooks/            # Custom hooks (useAuth, useProducts)
@@ -47,3 +54,6 @@ E-Commerce App
 3️⃣ Optimize performance (memoization, virtualization, code splitting).
 4️⃣ Centralize API requests to keep API logic separate.
 5️⃣ Implement role-based authentication for secure access control.
+
+* Organizing Code-Splitting for Large Apps.
+* Error Handling Best Practices in Large React Apps?
