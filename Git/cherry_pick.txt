@@ -1,0 +1,92 @@
+### **What is `git cherry-pick`?**
+`git cherry-pick` is a Git command that allows you to apply a specific commit (or multiple commits) from one branch to another without merging the entire branch.
+
+#### **Use Cases of `git cherry-pick`**
+1. **Apply a Specific Fix from Another Branch**  
+   - Suppose a bug fix exists in `feature-branch`, but you need it in `main`. Instead of merging the whole `feature-branch`, you can cherry-pick only that commit.
+   ```sh
+   git checkout main
+   git cherry-pick <commit-hash>
+   ```
+   
+2. **Backporting Fixes**  
+   - If a critical fix was applied in `main` but also needs to be included in an older release branch (e.g., `release-v1.0`), `git cherry-pick` helps apply it there.
+
+3. **Moving a Commit from One Branch to Another**  
+   - If you accidentally committed to the wrong branch, you can cherry-pick the commit to the correct one and remove it from the wrong branch.
+
+---
+
+### **How `git rebase` Helps with `git cherry-pick`**
+While `git cherry-pick` is useful, rebasing can sometimes **eliminate the need for cherry-picking**. Here’s how:
+
+1. **Avoid the Need for Cherry-Picking by Keeping Up-to-Date with `rebase`**
+   - Instead of cherry-picking individual commits from `main` into your feature branch, rebasing can keep your branch in sync without unnecessary history clutter.
+   - Example:
+     ```sh
+     git checkout feature-branch
+     git rebase main
+     ```
+     This way, all updates from `main` are included in `feature-branch`, making cherry-picking unnecessary.
+
+2. **Prevent Duplicate Commits**
+   - If you cherry-pick a commit and later merge/rebase that branch into `main`, you might end up with duplicate commits.
+   - Rebase helps maintain a clean history, ensuring no redundant commits appear.
+
+3. **Rewriting History for Clean Cherry-Picks**
+   - Before cherry-picking, you can use interactive rebase (`git rebase -i`) to clean up commits.
+   - Example: If a commit includes unnecessary changes, you can split or squash it before cherry-picking.
+
+---
+
+### **When to Use Rebase vs Cherry-Pick**
+| Scenario | Use `git rebase` | Use `git cherry-pick` |
+|----------|-----------------|-----------------|
+| Keep a feature branch up-to-date | ✅ Yes | 🚫 No |
+| Apply only a specific commit to another branch | 🚫 No | ✅ Yes |
+| Avoid duplicate commits in history | ✅ Yes | 🚫 No |
+| Backport a fix to an older branch | 🚫 No | ✅ Yes |
+
+---
+
+### **Example of Cherry-Picking a Commit**
+1. Find the commit you want to apply:
+   ```sh
+   git log --oneline
+   ```
+   Example output:
+   ```
+   a1b2c3d Fix login issue
+   4e5f6g7 Add new feature
+   ```
+   
+2. Cherry-pick the commit:
+   ```sh
+   git checkout main
+   git cherry-pick a1b2c3d
+   ```
+
+3. If conflicts occur:
+   - Resolve them manually.
+   - Add resolved files:
+     ```sh
+     git add <file>
+     ```
+   - Continue:
+     ```sh
+     git cherry-pick --continue
+     ```
+
+4. Push the updated branch:
+   ```sh
+   git push origin main
+   ```
+
+---
+
+### **Summary**
+- **`git cherry-pick`** is useful for applying specific commits to another branch without merging.
+- **`git rebase`** helps keep branches up-to-date and avoids unnecessary cherry-picking.
+- Use **rebase to maintain a clean history** and **cherry-pick for isolated fixes or backports**.
+
+Would you like an example related to your current project? 🚀

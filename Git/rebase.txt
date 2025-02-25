@@ -1,0 +1,59 @@
+
+## Steps to Rebase in GitHub Using Command Line:
+
+ 1. **Ensure Your Local Repo is Up-to-Date**
+
+git checkout main  # Switch to main branch
+git pull origin main  # Get the latest changes
+
+
+ 2. **Switch to the Branch You Want to Rebase**
+
+git checkout feature-branch
+
+
+ 3. **Rebase Your Branch onto Main**
+
+git rebase main
+
+- This applies your feature branch commits on top of the latest `main` branch.
+- If there are conflicts, Git will stop at the conflicting commit and ask you to resolve them.
+
+ 4. **Resolve Any Conflicts (If Any)**
+- Open conflicting files and fix issues.
+- After resolving conflicts, stage the changes:
+  
+  git add <file>
+  
+- Continue the rebase process:
+  
+  git rebase --continue
+  
+- If you want to abort the rebase:
+  
+  git rebase --abort
+  
+
+ 5. **Force Push the Updated Branch**
+Since rebase rewrites history, you need to force push:
+
+git push origin feature-branch --force
+
+⚠️ **Warning:** Force pushing (`--force`) can overwrite history and cause issues for teammates working on the same branch.
+
+---
+
+To exit without saving changes, press
+Esc → :q! → Enter
+
+To exit and apply changes, press
+Esc → :wq → Enter
+
+interactive rebase (git rebase -i) to clean up commits.
+
+## Alternative: Rebase When Merging a Pull Request
+1. Open your **Pull Request** on GitHub.
+2. Click on the dropdown next to the **"Merge"** button.
+3. Select **"Rebase and Merge"** instead of the default merge commit.
+
+Let me know if you need more details! 🚀
