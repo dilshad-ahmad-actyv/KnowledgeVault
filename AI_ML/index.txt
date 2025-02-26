@@ -1,3 +1,4 @@
 https://github.com/Yash-Kavaiya/GenAI-Learning?tab=readme-ov-file
 https://roadmap.sh/r/genai-roadmap-2024
 https://roadmap.sh/ai-data-scientist
+1. Ollama vs Huggingface vs LM Studio
