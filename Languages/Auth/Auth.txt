@@ -1,0 +1,16 @@
+1. Validation, Authentication and Authorization
+2. Auth 2.0
+3. Session
+4. JWT
+5. AccessToken vs RefreshToken
+6. Cookies
+6. LocalStorage vs Cookie(httpOnly) - XSS and CSRF
+7. how authentication works in frontend and backend
+8. Role-Based Authentication (RBAC)?
+9. Deploying Secure JWT Auth with Nginx & HTTPS?
+10. protected routes
+11. login
+12. logout
+13. cors
+14. http, https
+15. Best ways to protect the App (backend and frontend both)

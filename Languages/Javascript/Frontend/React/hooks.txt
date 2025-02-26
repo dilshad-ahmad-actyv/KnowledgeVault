@@ -14,7 +14,11 @@
  13. useSyncExternalStore
  14. useTransition
  15. Custom hooks
- 16. lazy
+ 16. lazy, Suspense
  17. forwardRef
  18. Context API
  19. memo
+ 20. React Query and Why Use React Query?
+ 21. useParams (Dynamic Params eg: /about/:id)
+ 22. useSearchParams (Query Params eg. ?name=value)
+ 23. useLocation (Scroll to Top on Route Change)

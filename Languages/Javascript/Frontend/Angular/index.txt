@@ -1,0 +1,1 @@
+1. What is an Animation? - An animation is when the transformation of an HTML element gives you an illusion of motion.

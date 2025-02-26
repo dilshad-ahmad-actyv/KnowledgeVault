@@ -1,0 +1,135 @@
+1. git diff <file> (View Unstaged Changes (Local Changes))
+2. git diff --staged or git diff --staged <file>(for specific files) (View Staged Changes (Before Committing))
+3. git diff <commit1> <commit2> -- <file> (View Changes Between Commits of a file)
+4. git diff main..feature-branch (View Differences Between a Branch and Main, If you want to see how a branch differs from main)
+5. git diff <commit> -- <file> (View Differences Between a Commit and Working Directory)
+6. git show <commit> (View Changes in a Specific Commit)
+7. git diff origin/main (Compare Changes with Remote Branch)
+8. git diff --color-words <file> ( Show a File Difference in a More Readable Format)
+
+
+
+In Git, you can view the differences between files using various commands depending on your needs. Here are different ways to see file differences:
+
+---
+
+### **1. View Unstaged Changes (Local Changes)**
+If you want to see changes made to a file that haven't been staged yet:
+```sh
+git diff <file>
+```
+Example:
+```sh
+git diff index.js
+```
+This shows what has changed in the file compared to the last committed version.
+
+---
+
+### **2. View Staged Changes (Before Committing)**
+To see the differences in files that have been added (`git add`) but not yet committed:
+```sh
+git diff --staged
+```
+or for a specific file:
+```sh
+git diff --staged <file>
+```
+Example:
+```sh
+git diff --staged app.js
+```
+
+---
+
+### **3. View Changes Between Commits**
+If you want to compare a file between two commits:
+```sh
+git diff <commit1> <commit2> -- <file>
+```
+Example:
+```sh
+git diff a1b2c3d 4e5f6g7 -- main.py
+```
+
+---
+
+### **4. View Differences Between a Branch and Main**
+If you want to see how a branch differs from `main`:
+```sh
+git diff main..feature-branch
+```
+This shows the differences between `main` and `feature-branch`.
+
+---
+
+### **5. View Differences Between a Commit and Working Directory**
+If you want to compare a file from a specific commit to your current working directory:
+```sh
+git diff <commit> -- <file>
+```
+Example:
+```sh
+git diff 123abc -- app.py
+```
+This shows how `app.py` has changed since commit `123abc`.
+
+---
+
+### **6. View Changes in a Specific Commit**
+To see the changes made in a particular commit:
+```sh
+git show <commit>
+```
+Example:
+```sh
+git show a1b2c3d
+```
+
+---
+
+### **7. Compare Changes with Remote Branch**
+To see the difference between your local branch and the remote branch:
+```sh
+git diff origin/main
+```
+
+---
+
+### **8. Show a File Difference in a More Readable Format**
+Use `--color-words` to show inline changes in words instead of lines:
+```sh
+git diff --color-words <file>
+```
+Example:
+```sh
+git diff --color-words README.md
+```
+
+---
+
+### **9. View Differences Using a GUI Tool**
+If you have a visual diff tool (like `meld`), you can use:
+```sh
+git difftool
+```
+or for a specific file:
+```sh
+git difftool <file>
+```
+Example:
+```sh
+git difftool styles.css
+```
+
+---
+
+### **10. View Changes in a More Compact Format**
+```sh
+git diff --stat
+```
+This shows a summary of changes instead of the full details.
+
+---
+
+Would you like an example specific to your project? 🚀

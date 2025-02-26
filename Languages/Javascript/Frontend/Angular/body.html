@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>I am the body of the other html file</h1>
+    <ul ng-repeat="x in data">
+        <li>{{x}}</li>
+    </ul>
+
+    <script>
+                var app = angular.module('myApp');
+        app.controller('myCtrl', function($scope){
+            $scope.data = ['Js', 'Java', 'Python', 'C++'];
+        })
+    </script>
+</body>
+</html>

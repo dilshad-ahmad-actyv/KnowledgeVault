@@ -12,22 +12,22 @@
 12. Prop drilling vs ContextAPI vs Redux
 13. Composition vs Inheritance
 14. Thinking in React
-15. Accessibility
-16. Code-Splitting
-17. Context
+15. Accessibility(a11y)
+16. Code-Splitting - Lazy Loading & Optimization -> Code-splitting improves performance by loading only the necessary JavaScript for each page, instead of sending everything in a single large bundle.
+17. Context -> Context API
 18. Error Boundaries
 19. Forwarding Refs
 20. Fragments
 21. Higher Order Components
 22. Portals
-23. Profiler
+23. Profiler - Optimized with Memoization? (React.memo, useMemo, useCallback)
 24. React without ES6
 25. React without JSX
-26. Reconciliation
+26. Reconciliation - Reconciliation is React’s diffing algorithm that efficiently updates the DOM by comparing the previous and next Virtual DOM to minimize changes.
 27. Refs and the DOM
 28. React with TypeScript
 29. Strict Mode? usecase?
-30. Web Components
+30. Web Components - (Custom Elements, Shadow DOM and HTML Templates) Web Components are native browser features that allow you to create reusable, encapsulated UI elements using standard web technologies like HTML, CSS, and JavaScript.
 31. Components - Fragements, Profiler, StrictMode, Suspense
 32. forwardRef
 33. lazy
@@ -37,7 +37,11 @@
 37. functional vs class Components
 38. VDOM and how it works? what algoriths ?
 39. React Router*
-40. Name a few techniques to optimize React app performance.*
+40. Name a few techniques to optimize React app performance.* || Best practices for React performance optimization? || React Optimization Techniques for Large Applications?
 41. Advanced Reactjs Questions - https://www.interviewbit.com/react-interview-questions/#name-few-techniques-to-optimize-react-app-performance
-42. Declarative vs imperative programming
+42. Declarative(focuses on what to do, Outcome, JSX) vs imperative programming(focuses on How to do it, Process, DOM)
 43. Debouncing & throttling
+44. When building a **large-scale React application**, it's crucial to follow **structured principles** for component architecture, state management, and performance optimization.
+45. Prefetching (Load in Advance) & Preloading (Immediate Loading)
+46. Webpack and Babel
+47. How to Implement SEO & Meta Tags in React Router?
