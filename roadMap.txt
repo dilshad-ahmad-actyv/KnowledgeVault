@@ -1,0 +1,32 @@
+March 10, 2025 - March 9, 2026
+
+Days -> 365
+weeks -> 52
+weekends -> 104d
+
+10h ->Self
+9h -> Job
+5h -> Learning
+
+261 * 5 (5hrs in weekdays) = 1305hrs
+104 * 10 (10hrs in weekends) = 1040hrs
+Earned Leaves -> 15 + 6 + 6 = 27d
+Holidays = 12d
+Learning Hours in a year = 1305 + 1040 -> 2345hrs ~2000hrs
+
+TOPICS
+
+1. Maths -> 100hrs 
+2. AI_ML -> 500hrs
+3. Databases -> 50hrs
+4. DevOps -> 100hrs
+5. MLOPs -> 50hrs
+6. System Design(LLD + HLD) -> 150hrs
+7. Frontend -> 200hrs
+8. Backend -> 300hrs
+9. Android Development-> 200hrs
+10. DSA -> 250hrs
+11. Languages -> 60hrs
+12. Others -> 40hrs
+
+Daily Tasks -> DSA + System Design + Languages + Databases + English
