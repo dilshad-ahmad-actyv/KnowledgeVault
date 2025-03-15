@@ -1,0 +1,99 @@
+1. What is docker? usecase?
+2. Dockerfile, custom Dockerfile
+3. Image
+4. Container
+5. Volume
+6. DockerHub or Private Registry
+7. Repository
+8. Hardware/Machine ->OS ->docker Engine -> Container -> Image
+
+Basic Command
+
+Building image
+1. docker build .
+2. docker build -t image_name:v1 .
+3. docker build -t image_name:v1 -f dockerfile.epiplex . (-t = tag, -f=?)
+
+Image Ops
+
+4. docker image ls
+5. docker images
+6. docker rmi image_name/image_id
+7. docker rmi image_name/image_id -f (-f = force)
+
+Container - container is an isolated environment
+
+8. docker run image_name/image_id
+9. docker run -d image_name/image_id
+10. docker run -d --rm image_name/image_id(-d = detached mode, --rm=remove container once stop)
+11. docker run -d --rm --name "container_name" image_name/image_id
+12. docker run -d --rm --name "container_name" -p 3000:3000 image_name/image_id (-p = port binding, first 3000 is on out of the container port and second is of container port)
+13. docker run -d --rm --name "container_name_v1" -p 3001:3000 image_name/image_id(multiple container on same image)
+Note: -p port1:port2(when running docker, bind it with port first to get container accessible outside else won't work)
+
+Container Ops
+1. docker stop container_name/container_id
+2. docker start container_name/container_id
+3 docker run --env variable_name="value" image
+
+16. docker run -it image_name/image_id (-it=interactive terminal)
+Note: whenever needed interactive terminal, use -it while running docker image/container
+
+DockerHub/Private Registry
+1. Create new repository on DockerHub
+2. docker login(on terminal)
+3. docker tag local-image:tagname new_repo:tagname (it's kind of renaming image, without this if you want to push any image then use "docker push username/image:tagname")
+4. docker push new_repo:tagname
+
+Use images
+1. docker pull image_name
+
+Docker Volumes
+1. docker run -v volume_nume:/storage_path/ image_name/image_id
+2. docker volume --help
+3. docker volume ls 
+4. docker volume inspect volume_nume
+
+Volum Mount binding
+1. docker run -v /data_path(outside of the container) : /data_path(inside of the container) image_name/image_id (with this way, not only the data you can mount, but also you can mount the code files inside the container itself, without creating new image, you will be able to access it)
+
+Docker .dockerignore
+
+Communication From/To containers
+ - Working with APIs
+   - container and public APIs, this will work without any extra efforts
+ 
+ - Container and Local DB
+   - localhost/local -> host.docker.internal (while creating connection with database in the code, instead of using 'local/localhost', use 'host.docker.internal', then after creating docker image, it will be able to connect with the local database)
+   - while connecting with containers(which is database), then instead of the above, use container's ip address(docker inspect container_name)
+ - Communication between containers
+
+ Docker Logs
+ 1. docker logs container_name/container_id
+
+ Docker and ENV 
+ 1. docker run --env variable_name="value" image
+ 2. docker run --env variable_1="value" --env variable_2="value" image
+ 3. docker inspect container_name (to check the container details, including its ip address)
+
+ Creating Docker Network
+ 1. docker network --help
+ 2. docker network create my_net(network_name)
+ 3. docker network ls
+ 4. docker run --network my_net image
+
+ Docker Compose
+        - Configuration file to manage single/multiple containers running on same machine.
+    1. docker-compose up
+    2. docker-compose up -d 
+    3. docker-compose down
+    4. docker-compose down -v (to remove network/volumes also)
+    Note: with docker-compose, no need to use --rm(because it exists as default in it)
+    
+    5. docker-compose with containers
+    6. docker-compose with Volumes
+    7. docker-compose with ports
+
+    Docker Hub register
+    1. docker login
+    2. docker push image

@@ -172,8 +172,73 @@
 # x = my_generator()
 # print(x)
 
-data = [1, 2, 3, 4]
+# data = [1, 2, 3, 4]
 
 
-squares = map( lambda x: x ** 2, data)
-print(list(squares))
+# squares = map( lambda x: x ** 2, data)
+# print(list(squares))
+
+# a = b = c = 1
+# print(a)
+# print(b)
+# print(c)
+
+# Literals -> Representation of Fixed Values
+
+# collections literals in python
+
+# # list
+# fruits = ['apple', 'orange', 'banana']
+# # tuple
+# nums = (1, 2, 3)
+# # dictionary
+# person = {
+#     'name': 'John',
+#     'age': 30,
+#     'city': 'New York'
+# }
+# # set
+# marks = {23, 12, 34}
+
+
+# num1 = 123  # type: integer -> smaller/lower datatype
+# num2 = 1.23 # typ: float -> larger/upper datatype
+
+# num = num1 + num2 # float, implicit(automatic) type conversion
+
+# print(num)
+# print(type(num))
+
+# num1 = '123'
+# num2 = 1.23
+# num = float(num1) + num2 # explicit(mannual) type conversion / type casting
+
+# print(num)
+# print(type(num))
+
+# print('Hello World!') # single params
+# # print(object= separator= end= file= flush=)
+# print("Hello", "Dilshad", end=' ')
+
+# print('Hello', end=' ')
+# print('Dilshad')
+# print('New Year', 2023, 'See you soon!', sep= '. ')
+# for i in range(5):
+#     end_param = '\n'
+#     if i == 4:
+#         end_param = '\n'
+#     else:
+#         end_param = ' '
+
+#     print(i, i, end=end_param, sep='# ')
+
+# x = 5
+# y = 10
+
+# print('The value of x is {1} and y is {0}'.format(x,y))
+
+
+
+num = input("Enter a number: ")
+print("You have entered {}".format(num))
+print(type(num))
