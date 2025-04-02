@@ -8,3 +8,5 @@
 8. encryption (SSL/TLS)
 9. TCP/IP, UDP
 10. Apache, Nginx
+11. Webhook
+12. Websocket 
