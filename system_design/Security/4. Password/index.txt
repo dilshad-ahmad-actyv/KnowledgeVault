@@ -1,0 +1,7 @@
+1. storing password in the database
+2. fingerprint -> hash(salt + password)
+3. rainbow table  - Think of the rainbow table as a map between pre-computed fingerprints and passwords.
+4. salting - Random string
+5. Stretching - Think of stretching as applying the same hash function many times. Thus brute forcing becomes slower and more difficult.
+6. Token, session, cookies, localstorage
+7. http vs state

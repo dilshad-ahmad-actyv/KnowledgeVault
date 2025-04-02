@@ -1,5 +1,10 @@
 1. What is Browser?
 2. What is Server?
 3. What is WebBrowser?
-4. HTTP and HTTPS
-5. 
+4. HTTP(80) and HTTPS(443) - HTTP is the rulebook 📜 that defines how browsers and servers communicate. HTTPS is the secure version of HTTP. It uses encryption (SSL/TLS) to keep data safe from hackers.
+5. firewall
+6. web and website
+7. wwww
+8. encryption (SSL/TLS)
+9. TCP/IP, UDP
+10. Apache, Nginx

@@ -1,0 +1,9 @@
+Authentication:
+
+1. Implement strong authentication mechanisms (OAuth, JWT, Multi-Factor Authentication).
+
+2. Use secure password storage (bcrypt, Argon2, PBKDF2).
+
+3. Prevent brute force attacks (rate limiting, account lockouts).
+
+4. Implement session management properly (secure session cookies, token expiration).

@@ -1,0 +1,9 @@
+Authorization:
+
+1. Use the Principle of Least Privilege (PoLP).
+
+2. Implement Role-Based Access Control (RBAC) or Attribute-Based Access Control (ABAC).
+
+3. Prevent Insecure Direct Object References (IDOR).
+
+4. Validate API permissions properly.
