@@ -1,0 +1,58 @@
+DevOps 
+- DevOps is a combination of development (Dev) and operations (Ops)—it's a set of practices, principles, and tools that help organizations deliver software faster, more reliably, and at scale.
+- DevOps is about breaking the wall between the team that writes code (developers) and the team that deploys and runs it (operations). It promotes collaboration, automation, and continuous delivery of software.
+
+ Key Pillars of DevOps:
+
+1. Collaboration: Dev + Ops teams work closely instead of in silos
+2. Automation: Automate builds, testing, deployments, and infrastructure
+3. Continuous Integration & Delivery (CI/CD): Ship code quickly and safely
+4. Monitoring: Get real-time feedback from systems in production
+5. Infrastructure as Code (IaC): Treat infrastructure like code using tools like Terraform
+
+
+Goals of DevOps:
+
+1. Faster software delivery
+2. Reduced deployment failures and rollback time
+3. Better collaboration between teams
+4. Higher efficiency and reliability
+
+
+Common DevOps Tools:
+
+Area	                                 Tools
+
+Version Control         	        Git, GitHub, GitLab
+CI/CD	                            Jenkins, GitHub Actions, GitLab CI
+Configuration Mgmt      	        Ansible, Puppet, Chef
+Containers	                        Docker
+Orchestration	                    Kubernetes
+IaC                             	Terraform, AWS CloudFormation
+Monitoring/Logging	                Prometheus, Grafana, ELK Stack
+Cloud Providers                    	AWS, Azure, Google Cloud
+
+
+* Artifacts - An artifact is a byproduct of software development that helps describe the architecture, design, and function of the software. 
+ - In software development, "artifacts" refer to any tangible or intangible outputs or deliverables produced during the development process, such as code, documentation, diagrams, or executables, that contribute to the creation, maintenance, or understanding of the software. 
+ - Build outputs is also artifacts 
+
+ DevOps Lifecycle (Phases)
+ - The DevOps lifecycle is a continuous loop of:
+ planning -> developing -> testing -> deploying -> operating -> improving software (Monitor & Feedback).
+
+
+ DevOps Core Principles (CALMS)
+
+Letter	Principle	    Meaning
+
+C	    Culture	        Encourage collaboration, ownership, and shared responsibilities
+A	    Automation	    Automate as much as possible—builds, tests, deployments, infrastructure
+L	    Lean	        Eliminate waste, shorten feedback loops, and deliver value continuously
+M	    Measurement	    Track everything: performance, errors, user behavior, etc.
+S	    Sharing	        Share knowledge, best practices, and responsibility across teams
+
+
+* Agile -> Iterative (Sprints, usually 1-4 weeks) -> is like designing and building a car one feature at a time, checking with users every step (e.g., “How’s the steering?”).
+
+* DevOps -> Continuous (CI/CD pipeline) -> is like setting up a factory that builds and delivers that car continuously and reliably to customers with automation, QA, and logistics.

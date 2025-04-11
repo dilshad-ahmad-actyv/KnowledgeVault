@@ -1,0 +1,102 @@
+
+* Kernel
+* OS
+* system call (a special function that tells the OS to do something on their behalf) eg. open(), read(), close() etc.
+ - They provide a safe, controlled interface for programs to use hardware. Without them, every program could crash or corrupt your machine!
+
+ +-------------------+
+|  Your Program     |    (User Space)
+|-------------------|
+|  open("file.txt") | 
++--------|----------+
+         |
+         v
++-------------------+
+|   System Call     | --> Switch to Kernel Space
++-------------------+
+         |
+         v
++---------------------------+
+|        Kernel             |
+|---------------------------|
+| - Check file system       |
+| - Validate permissions    |
+| - Allocate file descriptor|
++---------------------------+
+         |
+         v
++---------------------------+
+|   Return file descriptor  |
++---------------------------+
+
+(then similar flow for `read()` and `close()`)
+
+* Assembly-Level System Call (x86_64 Linux)
+* Modern Linux uses the `syscall` instruction on x86_64 to switch from user space to kernel space.
+
+Flow from C to Kernel
+
+Your C Code (read(fd, buf, count))
+      ↓
+libc wrapper function (calls syscall)
+      ↓
+Assembly (mov rax, 0; syscall)
+      ↓
+CPU switches to kernel mode
+      ↓
+Kernel syscall handler → syscall table
+      ↓
+__x64_sys_read()
+      ↓
+vfs_read() → file system implementation
+      ↓
+Reads data from disk or device
+
+
+OS - An Operating System (OS) is `system software` that manages all `hardware` and `software` resources on a computer. It acts as an intermediary between users/applications and the computer hardware.
+- The Operating System is the invisible manager of your computer that makes everything work — from running apps, saving files, protecting your data, and ensuring all the pieces (hardware & software) play nicely together.
+
+Core Functions of an OS
+ - Process Management
+ - Memory Management
+ - File System Management
+ - Device Management
+ - Security & Access Control
+ - System Calls Interface -> This is the bridge between user space and kernel space
+
+
+Examples of Operating Systems
+
+OS Type	    Examples	                                 Notes
+
+Desktop	    Windows, macOS, Linux	                    User-friendly, full-featured
+Mobile	    Android, iOS	                            Optimized for battery, touch, mobility
+Server	    Ubuntu Server, Red Hat, Windows Server	    Focused on performance, uptime
+Embedded	RTOS, VxWorks, FreeRTOS	                    Runs on IoT devices, routers, cars
+
+* Types of OS
+
+Life of a Program in an OS (Simple Flow):
+
+1. You click an app
+2. OS loads program into RAM
+3. OS schedules it on CPU
+4. Program requests file (system call)
+5. OS opens file, gives data
+6. You close the app
+7. OS frees memory, handles cleanup
+
+
+* CPU vs GPU vs TPU
+* RAM
+* Hard Drive
+* Mouse & Keyboard how it works internally?
+* Internet card
+* disks (SSD, HDD, USB)
+* Virtual Memory
+* Virtual Environment
+* Keyboard, mouse, disk, webcam — all are devices, OS uses `device drivers` to communicate with them
+* firewall
+* open-source vs closed source
+* Windows vs Linux vs macOS
+* Package Managemer - exe/msi,Windows Store(windows) | apt, yum, dnf, pacman(linux) | homebrew, App Store(macOS)

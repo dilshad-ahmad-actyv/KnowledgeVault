@@ -1,0 +1,71 @@
+What is CI/CD?
+ - CI → Continuous Integration
+ - CD → Continuous Delivery / Continuous Deployment
+
+ CI -> CI is the practice of frequently integrating code from all developers into a shared repository—multiple times a day
+
+What happens in CI:
+
+* Developers push code to Git
+* Automated pipeline runs:
+    - Build the code
+    - Run tests (unit, integration, etc.)
+    - Check code quality
+    - Generate artifacts (build outputs)
+
+Goals of CI:
+    - Catch bugs early
+    - Avoid integration issues
+    - Keep the main branch always in a deployable state
+
+Common CI Tools:
+    Jenkins
+    GitHub Actions
+    GitLab CI
+    CircleCI
+    Travis CI
+
+
+Continuous Delivery (CD)
+ - CD is the practice of automatically preparing every change for release to production, but deployment is done manually or with approval.
+
+Continuous Deployment (CD)
+  - This goes one step beyond Continuous Delivery—it automatically deploys every successful change directly to production without manual approval.
+
+
+What happens in CD:
+
+After successful CI:
+    - Artifacts are pushed to staging or QA
+    - Environments are provisioned automatically (IaC)
+    - Smoke tests / performance tests are run
+    - Ready for production with one-click deploy
+
+Goals of CD:
+    - Reliable and repeatable releases
+    - Minimal manual intervention
+    - Reduce human errors in deployment
+
+
+CI/CD Pipeline Flow Diagram
+
+            Developer pushes code to GitHub/GitLab
+                          |
+                          v
+                ✅ Continuous Integration
+              - Build
+              - Automated tests
+              - Linting, static analysis
+                          |
+                          v
+            ✅ Continuous Delivery / Deployment
+        - Deploy to staging
+        - Integration tests / QA
+        - Manual approval (Delivery) or Auto-deploy (Deployment)
+                          |
+                          v
+                   🎯 Production environment
+
+
+* Practice on a project
+* A list of CI/CD best practices?
