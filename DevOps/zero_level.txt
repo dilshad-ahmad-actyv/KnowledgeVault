@@ -100,3 +100,6 @@ Life of a Program in an OS (Simple Flow):
 * open-source vs closed source
 * Windows vs Linux vs macOS
 * Package Managemer - exe/msi,Windows Store(windows) | apt, yum, dnf, pacman(linux) | homebrew, App Store(macOS)
+* GUI vs CLI 
+* Shell
+* shell program - bash(Bourne again shell), zsh, ksh, tsch etc.
