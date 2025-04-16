@@ -1,0 +1,16 @@
+Library        Primary Use	                    Data Type	           Level	    Built on	Visualization	 Real-Life Use Case
+
+NumPy	       Numerical computation	        Arrays (ndarray)	   Low-level	C	            ❌	        Sensor data, math ops
+Pandas	       Data analysis and manipulation	Tables (DataFrame)	   Mid-level	NumPy       	✅ (basic)	Excel-like data
+Matplotlib	   Data visualization (manual)	    Charts/plots	       Low-level	NumPy	        ✅	        Custom plots
+Seaborn	       Statistical data visualization	Charts/plots	       High-level	Matplotlib  	✅ (stylish)	Exploratory data
+
+Library	    Analogy
+NumPy	           A calculator
+Pandas	     An Excel spreadsheet
+Matplotlib	     A blank canvas + paintbrush
+Seaborn 	     Canva for data visuals
+
+Numpy - The Backbone of Scientific Computing
+      - Efficient handling of numerical operations and large multi-dimensional arrays.
+      
