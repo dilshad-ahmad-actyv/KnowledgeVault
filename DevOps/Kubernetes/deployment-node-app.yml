@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  # Unique key of the Deployment instance
+  name: express-demo-server
+spec:
+  # 3 Pods should exist at all times.
+  replicas: 3
+  selector:
+    matchLabels:
+      app: express-demo-server
+  template:
+    metadata:
+      labels:
+        # Apply this label to pods and default
+        # the Deployment label selector to this value
+        app: express-demo-server
+    spec:
+      containers:
+      - name: express-demo-server
+        # Run this image
+        image: dilshadahmad09/express-demo-server:1.0

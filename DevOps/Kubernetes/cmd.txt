@@ -1,0 +1,30 @@
+minikube start
+minikube dashboard
+
+kubectl create deployment deployment_name --image=docker registry/hub image with tagname
+kubectl expose deployment deployment_name --type=LoadBalancer --port=port of image
+
+minikube service deployment_name
+
+kubectl get deployments
+kubectl get pods
+kubectl get services
+
+kubectl delete deployment deployment_name
+
+kubectl set image deployment demo-project-app(deployment_name) demo-project-app(container_name)=dilshadahmad09/demo-projec
+t-app:2.0(image_name) - Rollout
+
+kubectl rollout status deployment demo-project-app (Rollout status)
+
+kubectl rollout undo deployment demo-project-app (Roll back)
+
+kubectl delete service service_name
+
+kubectl scale deployment deployment_name --replicas=no of instances, 2, 4 etc
+
+kubectl apply -f yaml_file_name
+
+kubectl get all
+
+minikube stop

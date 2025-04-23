@@ -1,2 +1,83 @@
-1. Library vs Framework
-2. NGINX(80)
+Learning Journey (25 + 5 + 11 + 10 + 10 + 50 = 111 days)
+
+    1. MERN Stack (max: 25 days)
+    2. Databases (max: 5 days)
+    3. System Design (max: 11 days)
+    4. DevOps (max: 10 days)
+    5. DSA (max: 10 days) - (Python and Javascript)
+    6. AI/ML (max: 50 days)
+    7. Others
+
+24 HOURS
+    1. Office (9am - 7pm)
+        1. study AI(9am - 11am)
+        2. Work (11am - 4pm)
+        3. study AI (4pm - 7pm)
+
+    2. Home (7pm - 9am)
+        1. Gym + Dinner (7pm - 10pm)
+        2. Sleeping (10pm - 4am)
+        3. Study WebDev (4am - 7am)
+        4. Fresh + BreakFast (7am - 9am)
+
+1. MERN Stack (max: 25 days)
+
+    1. Nodejs, Expressjs - 7d
+    2. NestJs - 2d
+    3. Authentication, Authorization, Validation - 1d
+    4. Caching, Session, Cookies, Local Storage  - 1d
+    5. Reactjs - 2d
+    6. Redux - 1d
+    7. HTML - 5
+    8. CSS - 5
+    9. Javascript - 2d
+    10. Typescript - 1d
+    11. Python - 3d
+    12. FastAPI - 1d
+    13. Flask - 1d
+
+2. Databases (max: 5 days)
+
+    1. SQL - 2d
+    2. NoSQL - 1d
+    3. VectorDB - 1d
+
+3. System Design (max: 11 days)
+
+    1. OOPs, SOLID, ACID - 1d
+    2. LLD - 3d
+    3. HLD - 7d
+
+4. DevOps (max: 10 days)
+
+    1. Linux - 2d
+    2. Docker - 1d
+    3. Kubernetes - 1d
+    4. AWS - 2d
+    5. CICD - 1d
+    6. Git and GitHub - 1d
+    7. Others
+
+5. DSA (max: 10 days) - (Python and Javascript)
+
+6. AI/ML (max: 50 days)
+    1. Basics - 1d
+    2. Maths - 3d
+    3. Numpy - 1d
+    4. Pandas - 1d
+    5. Matplotlibs -1d
+    6. ANN, CNN, RNN - 3d
+    7. Pytorch - 2d
+    8. Tensorflow - 2d
+    9. transformers and others concepts - 2d
+    10. LLM - 3d
+    11. NLP - 5d
+    12. AudioAI - 5d
+    13. Computer Vision - 5d
+    14. RAG - 2d
+    15. AI Developments -1d
+    16. MLOps - 2d
+    17. Others
+
+
+7. Others
