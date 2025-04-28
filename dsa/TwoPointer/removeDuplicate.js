@@ -1,33 +1,18 @@
-/**
- * @param {number[]} nums
- * @return {number}
- */
-var removeDuplicates = function (nums) {
-  let n = nums.length;
-  let count = 0;
-  let i = 0;
-  while (i < n) {
-    let j = i + 1;
-    let bool = false;
-    while (nums[i] === nums[j] && j < n) {
-      j++;
-      bool = true;
-    }
+function removeDuplicates(nums) {
+  if (nums.length === 0) return 0;
 
-    if (bool) {
-      nums[count] = nums[i];
-      i = j;
-      count++;
-    } else {
-      nums[count] = nums[i];
-      count++;
-      i++;
+  let k = 1; // Pointer for the position of unique elements
+
+  for (let i = 1; i < nums.length; i++) {
+    if (nums[i] !== nums[i - 1]) {
+      nums[k] = nums[i];
+      k++;
     }
   }
-  console.log(nums);
-  return count;
-};
 
-const nums = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4];
+  return k;
+}
+
+const nums = [1, 2, 2, 3];
 const result = removeDuplicates(nums);
-console.log(result);
+console.log(nums);
