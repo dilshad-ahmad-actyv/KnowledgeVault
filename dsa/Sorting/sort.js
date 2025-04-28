@@ -22,19 +22,38 @@
 
 // Selection Sort
 
-let nums = [3, 0, -1, 5, 8, 7, 2];
-const n = nums.length;
+// let nums = [3, 0, -1, 5, 8, 7, 2];
+// const n = nums.length;
 
-for (let i = 0; i < n; i++) {
-  let min = i;
+// for (let i = 0; i < n; i++) {
+//   let min = i;
 
-  for (let j = i; j < n; j++) {
-    if (nums[min] < nums[j]) {
-      min = j;
-    }
+//   for (let j = i; j < n; j++) {
+//     if (nums[min] < nums[j]) {
+//       min = j;
+//     }
+//   }
+
+//   [nums[min], nums[i]] = [nums[i], nums[min]];
+// }
+
+// console.log(nums);
+
+// Insertion sort
+
+let nums = [3, 0, -1, 5, 8, 7, 2, 4];
+let n = nums.length;
+
+for (let i = 1; i < n; i++) {
+  let current = nums[i];
+  let j = i - 1;
+
+  while (j >= 0 && current < nums[j]) {
+    nums[j + 1] = nums[j];
+    j--;
   }
 
-  [nums[min], nums[i]] = [nums[i], nums[min]];
+  nums[j + 1] = current;
 }
 
 console.log(nums);
