@@ -53,26 +53,56 @@
 // const result = RfindIndexOfK(arr, k);
 // console.log(result);
 
-function findIndexOfK(l, h, arr, k) {
+// function findIndexOfK(l, h, arr, k) {
+//   while (l <= h) {
+//     let mid = Math.floor((l + h) / 2);
+//     if (arr[mid] === k) {
+//       return mid;
+//     } else {
+//       if (arr[mid] < k) {
+//         l = mid + 1;
+//       } else {
+//         h = mid - 1;
+//       }
+//     }
+//   }
+//   return -1;
+// }
+
+// const arr = [1, 3, 4, 6, 7, 10, 20, 23, 34, 40, 42, 45, 50];
+// const k = 20;
+// const n = arr.length;
+// let l = 0;
+// let h = n - 1;
+// const result = findIndexOfK(l, h, arr, k);
+// console.log(result);
+
+const findIndexOfK = (nums, k) => {
+  nums.sort((a, b) => a - b);
+
+  let n = nums.length;
+  let l = 0;
+  let h = n - 1;
+
   while (l <= h) {
     let mid = Math.floor((l + h) / 2);
-    if (arr[mid] === k) {
+
+    if (nums[mid] === k) {
       return mid;
     } else {
-      if (arr[mid] < k) {
-        l = mid + 1;
-      } else {
+      if (nums[mid] > k) {
         h = mid - 1;
+      } else {
+        l = mid + 1;
       }
     }
   }
-  return -1;
-}
 
-const arr = [1, 3, 4, 6, 7, 10, 20, 23, 34, 40, 42, 45, 50];
-const k = 20;
-const n = arr.length;
-let l = 0;
-let h = n - 1;
-const result = findIndexOfK(l, h, arr, k);
+  return -1;
+};
+
+const nums = [4, 5, 0, 1, -1, 3];
+const k = 9;
+
+const result = findIndexOfK(nums, k);
 console.log(result);
