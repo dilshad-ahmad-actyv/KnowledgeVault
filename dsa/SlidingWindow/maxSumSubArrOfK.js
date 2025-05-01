@@ -1,68 +1,49 @@
-// let arr = [2, 5, 1, 8, 2, 9, 1];
-// let k = 3;
-// function maxSumSubArrOfSizeK(arr) {
-//   let i = 0;
-//   let j = 0;
-//   let n = arr.length;
-//   let sum = 0;
-//   let max = null;
+// Maximum sum subarray of size k
 
-//   while (j < n) {
-//     sum += arr[j];
-//     if (j - i + 1 < k) {
-//       j++;
-//     } else if (j - i + 1 === k) {
-//       if (max < sum) {
-//         max = sum;
-//       }
-//       sum = sum - arr[i];
-//       i++;
-//       j++;
-//     }
-//   }
-//   return max;
-// }
+// Brute force
 
-// const result = maxSumSubArrOfSizeK(arr, k);
-// console.log(result);
-
-const nums = [2, 4, 3, 8, 0, -1, 10];
+// const nums = [2, 5, 1, 8, 2, 9, 1];
+// const n = 7;
 // const k = 3;
-// const n = nums.length;
+// const storage = [];
 // let max = -Infinity;
-// // brute force solution
-// for (let i = 0; i < n; i++) {
+
+// for (let i = 0; i < n - k + 1; i++) {
 //   let sum = 0;
 //   for (let j = i; j < i + k; j++) {
 //     sum += nums[j];
 //   }
+//   storage.push(sum);
 //   if (max < sum) {
 //     max = sum;
 //   }
 // }
-
 // console.log(max);
 
-// sliding window solution
+// optimized solution: sliding window
 
+const nums = [2, 5, 1, 8, 2, 9, 1];
+const n = 7;
+const k = 3;
 let i = 0;
 let j = 0;
-let n = nums.length;
-let max = -Infinity;
 let sum = 0;
-const k = 3;
+let max = -Infinity;
+const storage = [];
 while (j < n) {
   sum += nums[j];
+
   if (j - i + 1 < k) {
     j++;
   } else if (j - i + 1 === k) {
     if (max < sum) {
       max = sum;
     }
+    storage.push(sum);
     sum -= nums[i];
     i++;
     j++;
   }
 }
-
-console.log(max);
+// console.log(max);
+console.log(storage);
