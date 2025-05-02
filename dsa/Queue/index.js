@@ -139,62 +139,130 @@
 // queue.enqueue(25);
 // queue.traverse();
 
+// class Queue {
+//   constructor() {
+//     this.data = [];
+//     this.len = 5;
+//     this.front = -1;
+//     this.rear = -1;
+//   }
+
+//   enqueue(val) {
+//     if (this.isFull()) {
+//       return "Overflow";
+//     }
+//     if (this.isEmpty()) {
+//       this.front++;
+//       this.rear++;
+//       this.data[this.rear] = val;
+//     } else {
+//       this.rear++;
+//       this.data[this.rear] = val;
+//     }
+//   }
+
+//   dequeue() {
+//     if (this.isEmpty()) {
+//       return "Underflow";
+//     }
+//     this.front--;
+//   }
+
+//   peek() {
+//     if (this.isEmpty) {
+//       return "Empty";
+//     }
+//     return this.data[this.front];
+//   }
+
+//   isEmpty() {
+//     return this.front === -1 ? true : false;
+//   }
+//   isFull() {
+//     return this.len === this.rear ? true : false;
+//   }
+//   display() {
+//     if (this.isEmpty()) {
+//       return "Empty";
+//     }
+//     for (let i = this.front; i <= this.rear; i++) {
+//       console.log(this.data[i]);
+//     }
+//   }
+// }
+
+// const queue = new Queue();
+
+// queue.enqueue(3);
+// queue.enqueue(5);
+// queue.enqueue(10);
+
+// console.log(queue.display());
+
 class Queue {
-  constructor() {
-    this.data = [];
-    this.len = 5;
+  constructor(size) {
+    this.size = size;
+    this.queue = new Array(size);
     this.front = -1;
     this.rear = -1;
   }
 
   enqueue(val) {
-    if (this.isFull()) {
-      return "Overflow";
-    }
-    if (this.isEmpty()) {
+    if (this.rear === this.size - 1) {
+      throw Error("Queue overflow");
+    } else if (this.front === -1 && this.rear === -1) {
       this.front++;
       this.rear++;
-      this.data[this.rear] = val;
+      this.queue[this.rear] = val;
     } else {
       this.rear++;
-      this.data[this.rear] = val;
+      this.queue[this.rear] = val;
     }
   }
-
   dequeue() {
-    if (this.isEmpty()) {
-      return "Underflow";
+    if (this.front === -1) {
+      throw Error("Queue underflow!");
+    } else if (this.front === this.rear) {
+      this.front = -1;
+      this.rear = -1;
+    } else {
+      this.front++;
     }
-    this.front--;
   }
-
   peek() {
-    if (this.isEmpty) {
-      return "Empty";
+    if (this.front === -1) {
+      return "Queue is Empty";
+    } else {
+      return this.queue[this.front];
     }
-    return this.data[this.front];
-  }
-
-  isEmpty() {
-    return this.front === -1 ? true : false;
-  }
-  isFull() {
-    return this.len === this.rear ? true : false;
   }
   display() {
-    if (this.isEmpty()) {
-      return "Empty";
-    }
+    let ans = [];
+    let cnt = 0;
     for (let i = this.front; i <= this.rear; i++) {
-      console.log(this.data[i]);
+      ans[cnt++] = this.queue[i];
     }
+    return ans.join(" ");
+  }
+  isEmpty() {
+    return this.front === -1;
+  }
+  isFull() {
+    return this.rear === this.size - 1;
   }
 }
 
-const queue = new Queue();
-
+const queue = new Queue(5);
+queue.enqueue(2);
 queue.enqueue(3);
+queue.enqueue(4);
 queue.enqueue(5);
-queue.enqueue(10);
-
+queue.enqueue(6);
+queue.dequeue();
+queue.dequeue();
+queue.dequeue();
+queue.dequeue();
+queue.dequeue();
+queue.dequeue();
 console.log(queue.display());
+console.log(queue);
