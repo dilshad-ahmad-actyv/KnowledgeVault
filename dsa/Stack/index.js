@@ -99,47 +99,104 @@
 // console.log(push);
 // inputTaker(stack, 4);
 
+// class Stack {
+//   constructor() {
+//     this.data = [];
+//     this.top = -1;
+//     this.len = 5;
+//   }
+
+//   push(val) {
+//     if (this.isFull()) {
+//       return "Overflow!";
+//     }
+//     this.top += 1;
+//     this.data[this.top] = val;
+//   }
+
+//   pop() {
+//     if (this.isEmpty()) {
+//       return "Underflow!";
+//     }
+//     this.top -= 1;
+//   }
+//   peek() {
+//     return this.data[this.top];
+//   }
+//   isFull() {
+//     return this.data.length === this.len ? true : false;
+//   }
+//   isEmpty() {
+//     return this.data.length === 0 ? true : false;
+//   }
+//   display() {
+//     for (let i = 0; i <= this.top; i++) {
+//       console.log(this.data[i]);
+//     }
+//   }
+// }
+
+// const stack = new Stack();
+// stack.push(10);
+// stack.push(20);
+// stack.push(3);
+// // stack.pop();
+// // stack.display();
+// console.log(stack.peek());
+
 class Stack {
-  constructor() {
-    this.data = [];
-    this.top = -1;
-    this.len = 5;
+  constructor(n) {
+    this.pointer = -1;
+    this.size = n;
+    this.stack = [];
   }
 
   push(val) {
-    if (this.isFull()) {
-      return "Overflow!";
+    if (this.pointer === this.size - 1) {
+      throw Error("Stack Overflow!");
+    } else {
+      this.pointer++;
+      this.stack[this.pointer] = val;
     }
-    this.top += 1;
-    this.data[this.top] = val;
   }
-
   pop() {
-    if (this.isEmpty()) {
-      return "Underflow!";
+    if (this.pointer === -1) {
+      throw Error("Stack Underflow!");
+    } else {
+      this.pointer--;
     }
-    this.top -= 1;
   }
   peek() {
-    return this.data[this.top];
-  }
-  isFull() {
-    return this.data.length === this.len ? true : false;
-  }
-  isEmpty() {
-    return this.data.length === 0 ? true : false;
+    if (this.pointer === -1) {
+      throw Error("Stack is Empty!");
+    } else {
+      return this.stack[this.pointer];
+    }
   }
   display() {
-    for (let i = 0; i <= this.top; i++) {
-      console.log(this.data[i]);
+    let print = [];
+    let cnt = 0;
+    for (let i = this.pointer; i >= 0; i--) {
+      print[cnt++] = String(this.stack[i]);
     }
+    return print.join(" ");
+  }
+  isEmpty() {
+    return this.pointer === -1;
+  }
+  isFull() {
+    return this.pointer === this.size - 1;
   }
 }
 
-const stack = new Stack();
-stack.push(10);
-stack.push(20);
+const stack = new Stack(5);
+stack.push(11);
+stack.push(2);
 stack.push(3);
-// stack.pop();
-// stack.display();
+stack.push(9);
+stack.push(10);
 console.log(stack.peek());
+console.log(stack.isEmpty());
+console.log(stack.isFull());
+console.log(stack.display());
+console.log(stack);
