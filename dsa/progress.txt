@@ -1,0 +1,20 @@
+1. Pattern ->              *
+2. String ->               *
+3. Array ->                *
+4. Sorting ->              *
+5. Two Pointer  ->         *
+6. Sliding Window ->       *
+7. Stack ->                *
+8. Queue ->                *
+9. Binary Search ->        *
+10. Matrix ->
+11. LinkedList
+12. Binary Tree
+13. Graph
+14. Recursion
+15. BackTracking
+16. Greedy
+17. DP
+18. Bit Manipulation
+19. Heap
+20. Others

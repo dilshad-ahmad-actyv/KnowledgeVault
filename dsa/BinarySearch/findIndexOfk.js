@@ -101,7 +101,7 @@ const findIndexOfK = (nums, k) => {
   return -1;
 };
 
-const nums = [4, 5, 0, 1, -1, 3];
+const nums = [4, 5, 0, 1, 8, 9, -1, 3];
 const k = 9;
 
 const result = findIndexOfK(nums, k);
