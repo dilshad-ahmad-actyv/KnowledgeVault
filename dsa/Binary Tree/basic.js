@@ -175,20 +175,18 @@ class Node {
   }
 }
 
-const a = new Node("A");
-const b = new Node("B");
-const c = new Node("C");
-const d = new Node("D");
-const e = new Node("E");
-const f = new Node("F");
-const g = new Node("G");
+const a = new Node(5);
+const b = new Node(11);
+const c = new Node(3);
+const d = new Node(4);
+const e = new Node(2);
+const f = new Node(13);
 
 a.left = b;
 a.right = c;
 b.left = d;
 b.right = e;
 c.left = f;
-c.right = g;
 
 // const depthFirstValues = (root) => {
 //   if (root === null) return;
@@ -235,3 +233,35 @@ c.right = g;
 
 // const result = depthFirstValues(a);
 // console.log(result);
+
+// const breadthFirstValues = (root) => {
+//   const queue = [root];
+//   const output = [];
+
+//   while (queue.length > 0) {
+//     const current = queue.shift();
+//     output.push(current.val);
+
+//     if (current.left) queue.push(current.left);
+//     if (current.right) queue.push(current.right);
+//   }
+//   return output;
+// };
+
+// const result = breadthFirstValues(a);
+// console.log(result);
+
+// max root to leaf path sum
+
+const maxRootToLeafPathSum = (root) => {
+  if (root === null) return -Infinity;
+  if (root.left === null && root.right === null) return root.val;
+
+  return (
+    root.val +
+    Math.max(maxRootToLeafPathSum(root.left), maxRootToLeafPathSum(root.right))
+  );
+};
+
+const result = maxRootToLeafPathSum(a);
+console.log(result);
