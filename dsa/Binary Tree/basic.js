@@ -189,4 +189,49 @@ b.left = d;
 b.right = e;
 c.left = f;
 c.right = g;
-console.log(a);
+
+// const depthFirstValues = (root) => {
+//   if (root === null) return;
+
+//   depthFirstValues(root.left);
+//   depthFirstValues(root.right);
+//   console.log(root.val);
+// };
+
+// depthFirstValues(a);
+
+// const depthFirstValues = (root) => {
+//   const stack = [root];
+//   const output = [];
+//   while (stack.length > 0) {
+//     const current = stack.pop();
+//     output.push(current.val);
+
+//     if (current.right) stack.push(current.right);
+//     if (current.left) stack.push(current.left);
+//   }
+//   return output;
+// };
+
+// const depthFirstValues = (root, output) => {
+//   if (root === null) return [];
+
+//   output.push(...root.val);
+//   depthFirstValues(root.left, output);
+//   depthFirstValues(root.right, output);
+//   return output;
+// };
+
+// const result = depthFirstValues(a, []);
+// console.log(result);
+
+// const depthFirstValues = (root) => {
+//   if (root === null) return [];
+
+//   const leftValues = depthFirstValues(root.left);
+//   const rightValues = depthFirstValues(root.right);
+//   return [root.val, ...leftValues, ...rightValues];
+// };
+
+// const result = depthFirstValues(a);
+// console.log(result);
