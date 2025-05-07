@@ -53,7 +53,6 @@
 
 // breadthFirstPrint(graph, "a");
 
-
 // Creating graph dynamically
 
 // const graph = {};
@@ -89,7 +88,6 @@
 // addEdge("d", "f");
 
 // console.log(graph)
-
 
 // const hasPath = (graph, source, destination) => {
 //   if (source === destination) return true;
@@ -129,7 +127,6 @@
 
 // const output = hasPath(graph, 'a', 'e');
 // console.log(output)
-
 
 // const edges = [
 //   ["i", "j"],
@@ -176,8 +173,6 @@
 // const output = undirectedGraph(edges, "j", "o");
 // console.log(output)
 
-
-
 // const connectedComponentsCount = (graph) => {
 //   const visited = new Set();
 //   let count = 0;
@@ -212,7 +207,6 @@
 // const output = connectedComponentsCount(graph);
 // console.log(output)
 
-
 // const largestComponent = (graph) => {
 //   const visited = new Set();
 //   let largest = 0;
@@ -246,7 +240,6 @@
 
 // const output = largestComponent(graph);
 // console.log(output)
-
 
 // const shortestPath = (edges, NodeA, NodeB) => {
 //   const graph = buildGraph(edges);
@@ -293,7 +286,6 @@
 //   }
 //   return graph;
 // }
-
 
 // const isIslandCount = (grid) => {
 //   const visited = new Set();
@@ -343,52 +335,92 @@
 // const output = isIslandCount(grid);
 // console.log(output)
 
+// const minIsland = (grid) => {
+//   const visited = new Set();
+//   let min = Infinity;
+//   const rows = grid.length;
+//   const cols = grid[0].length;
 
-const minIsland = (grid) => {
-  const visited = new Set();
-  let min = Infinity;
-  const rows = grid.length;
-  const cols = grid[0].length;
+//   for (let r = 0; r < rows; r++) {
+//     for (let c = 0; c < cols; c++) {
+//       const size = exploreSize(grid, r, c, visited);
+//       console.log("size", size);
+//       if (size > 0 && min > size) min = size;
+//     }
+//   }
 
-  for (let r = 0; r < rows; r++) {
-    for (let c = 0; c < cols; c++) {
-      const size = exploreSize(grid, r, c, visited);
-      console.log("size", size);
-      if (size > 0 && min > size) min = size;
+//   return min;
+// };
+
+// function exploreSize(grid, r, c, visited) {
+//   const rowInbounds = 0 <= r && r < grid.length;
+//   const colInbounds = 0 <= c && c < grid[0].length;
+
+//   if (!rowInbounds || !colInbounds) return 0;
+
+//   if (grid[r][c] === "W") return 0;
+
+//   const position = r + "," + c;
+//   if (visited.has(position)) return 0;
+//   visited.add(position);
+
+//   let size = 1;
+//   size += exploreSize(grid, r - 1, c, visited);
+//   size += exploreSize(grid, r + 1, c, visited);
+//   size += exploreSize(grid, r, c - 1, visited);
+//   size += exploreSize(grid, r, c + 1, visited);
+
+//   return size;
+// }
+// const grid = [
+//   ["W", "L", "W", "W", "W"],
+//   ["W", "L", "W", "W", "W"],
+//   ["W", "W", "W", "L", "W"],
+//   ["W", "W", "L", "L", "W"],
+//   ["L", "W", "W", "L", "L"],
+//   ["L", "L", "W", "W", "W"],
+// ];
+
+// const output = minIsland(grid);
+// console.log(output);
+
+// function depthFirstPrintGraph(graph, source) {
+//   const stack = [source];
+
+//   while (stack.length > 0) {
+//     const current = stack.pop();
+//     console.log(current);
+
+//     for (let neighbour of graph[current]) {
+//       stack.push(neighbour);
+//     }
+//   }
+// }
+
+const breadthFristPrint = (graph, source) => {
+  const queue = [source];
+  const output = [];
+  while (queue.length > 0) {
+    const current = queue.shift();
+    output.push(current);
+
+    for (let neighbour of graph[current]) {
+      queue.push(neighbour);
     }
   }
-
-  return min;
+  return output;
 };
 
-function exploreSize(grid, r, c, visited) {
-  const rowInbounds = 0 <= r && r < grid.length;
-  const colInbounds = 0 <= c && c < grid[0].length;
+const graph = {
+  a: ["b", "c"],
+  c: ["e"],
+  e: [],
+  b: ["d"],
+  d: ["f"],
+  f: [],
+};
 
-  if (!rowInbounds || !colInbounds) return 0;
-
-  if (grid[r][c] === "W") return 0;
-
-  const position = r + "," + c;
-  if (visited.has(position)) return 0;
-  visited.add(position);
-
-  let size = 1;
-  size += exploreSize(grid, r - 1, c, visited);
-  size += exploreSize(grid, r + 1, c, visited);
-  size += exploreSize(grid, r, c - 1, visited);
-  size += exploreSize(grid, r, c + 1, visited);
-
-  return size;
-}
-const grid = [
-  ["W", "L", "W", "W", "W"],
-  ["W", "L", "W", "W", "W"],
-  ["W", "W", "W", "L", "W"],
-  ["W", "W", "L", "L", "W"],
-  ["L", "W", "W", "L", "L"],
-  ["L", "L", "W", "W", "W"],
-];
-
-const output = minIsland(grid);
-console.log(output);
+const source = "a";
+// depthFirstPrintGraph(graph, source);
+const result = breadthFristPrint(graph, source);
+console.log(result);
