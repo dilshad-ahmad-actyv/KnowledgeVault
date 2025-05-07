@@ -397,30 +397,77 @@
 //   }
 // }
 
-const breadthFristPrint = (graph, source) => {
-  const queue = [source];
-  const output = [];
+// const breadthFristPrint = (graph, source) => {
+//   const queue = [source];
+//   const output = [];
+//   while (queue.length > 0) {
+//     const current = queue.shift();
+//     output.push(current);
+
+//     for (let neighbour of graph[current]) {
+//       queue.push(neighbour);
+//     }
+//   }
+//   return output;
+// };
+
+// function depthFirstPrintGraph(graph, source) {
+//   console.log(source);
+
+//   for (let neighbour of graph[source]) {
+//     depthFirstPrintGraph(graph, neighbour);
+//   }
+// }
+// const graph = {
+//   a: ["b", "c"],
+//   c: ["e"],
+//   e: [],
+//   b: ["d"],
+//   d: ["f"],
+//   f: [],
+// };
+
+// const source = "a";
+// depthFirstPrintGraph(graph, source);
+// // const result = breadthFristPrint(graph, source);
+// // console.log(result);
+
+// const hasPath = (graph, src, dst) => {
+//   if (src === dst) return true;
+//   console.log(graph, src, dst);
+
+//   for (let neighbour of graph[src]) {
+//     if (hasPath(graph, neighbour, dst) === true) return true;
+//   }
+
+//   return false;
+// };
+
+const hasPath = (graph, src, dst) => {
+  const queue = [src];
+  if (src === dst) return true;
+
   while (queue.length > 0) {
     const current = queue.shift();
-    output.push(current);
+
+    if (current === dst) return true;
 
     for (let neighbour of graph[current]) {
       queue.push(neighbour);
     }
   }
-  return output;
+  return false;
 };
-
 const graph = {
-  a: ["b", "c"],
-  c: ["e"],
-  e: [],
-  b: ["d"],
-  d: ["f"],
-  f: [],
+  f: ["g", "i"],
+  g: ["h"],
+  i: ["g"],
+  i: ["k"],
+  j: ["i"],
+  h: [],
+  k: [],
 };
-
-const source = "a";
-// depthFirstPrintGraph(graph, source);
-const result = breadthFristPrint(graph, source);
+const source = "f";
+const destination = "k";
+const result = hasPath(graph, source, destination);
 console.log(result);
