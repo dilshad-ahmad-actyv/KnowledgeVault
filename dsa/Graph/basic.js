@@ -443,31 +443,83 @@
 //   return false;
 // };
 
-const hasPath = (graph, src, dst) => {
-  const queue = [src];
-  if (src === dst) return true;
+// const hasPath = (graph, src, dst) => {
+//   const queue = [src];
+//   if (src === dst) return true;
 
-  while (queue.length > 0) {
-    const current = queue.shift();
+//   while (queue.length > 0) {
+//     const current = queue.shift();
 
-    if (current === dst) return true;
+//     if (current === dst) return true;
 
-    for (let neighbour of graph[current]) {
-      queue.push(neighbour);
+//     for (let neighbour of graph[current]) {
+//       queue.push(neighbour);
+//     }
+//   }
+//   return false;
+// };
+// const graph = {
+//   f: ["g", "i"],
+//   g: ["h"],
+//   i: ["g"],
+//   i: ["k"],
+//   j: ["i"],
+//   h: [],
+//   k: [],
+// };
+// const source = "f";
+// const destination = "k";
+// const result = hasPath(graph, source, destination);
+// console.log(result);
+
+// ==========================Undirected Graph====================
+
+const undirectedGraph = (edges, source, destination) => {
+  const graph = buildGraph(edges);
+  return hasPath(graph, source, destination, new Set());
+};
+
+const edges = [
+  ["i", "j"],
+  ["i", "k"],
+  ["k", "m"],
+  ["k", "l"],
+  ["n", "o"],
+  // ["g"]
+];
+
+const source = "j";
+const destination = "n";
+const result = undirectedGraph(edges, source, destination);
+console.log(result);
+
+function buildGraph(edges) {
+  const graph = {};
+
+  for (let edge of edges) {
+    const [a, b] = edge;
+    if (!a || !b) {
+      if (a) graph[a] = [];
+      if (b) graph[b] = [];
+    } else {
+      if (!graph[a]) graph[a] = [];
+      if (!graph[b]) graph[b] = [];
+
+      graph[a].push(b);
+      graph[b].push(a);
     }
   }
+  return graph;
+}
+
+function hasPath(graph, src, dst, visited) {
+  if (src === dst) return true;
+  if (visited.has(src)) return false;
+
+  visited.add(src);
+
+  for (let neighbour of graph[src]) {
+    if (hasPath(graph, neighbour, dst, visited) === true) return true;
+  }
   return false;
-};
-const graph = {
-  f: ["g", "i"],
-  g: ["h"],
-  i: ["g"],
-  i: ["k"],
-  j: ["i"],
-  h: [],
-  k: [],
-};
-const source = "f";
-const destination = "k";
-const result = hasPath(graph, source, destination);
-console.log(result);
+}
