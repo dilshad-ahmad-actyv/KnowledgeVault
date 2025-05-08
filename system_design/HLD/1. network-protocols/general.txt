@@ -1,0 +1,20 @@
+1. Network
+2. Network Prtocols and types
+3. HTTP/HTTPS
+4. FTP 
+5. SMTP/IMAP/POP3
+6. DNS/IP Address, MAC Address, Routing, ISP
+7. TCP/IP
+8. SSL/TLS 
+9. How transmission works
+10. Server
+11. Browser
+12. www
+13. web
+14. URL/URI
+15. IP Address - IPv4 vs IPv6
+16. Routing: Routing is the process of determining the best path for data to travel from source to destination across networks.
+17. Router, Gateway
+18. IP and DHCP
+19. MAC and ARP
+20. Transmission media (wired/wireless)
