@@ -474,52 +474,89 @@
 
 // ==========================Undirected Graph====================
 
-const undirectedGraph = (edges, source, destination) => {
-  const graph = buildGraph(edges);
-  return hasPath(graph, source, destination, new Set());
-};
+// const undirectedGraph = (edges, source, destination) => {
+//   const graph = buildGraph(edges);
+//   return hasPath(graph, source, destination, new Set());
+// };
 
-const edges = [
-  ["i", "j"],
-  ["i", "k"],
-  ["k", "m"],
-  ["k", "l"],
-  ["n", "o"],
-  // ["g"]
-];
+// const edges = [
+//   ["i", "j"],
+//   ["i", "k"],
+//   ["k", "m"],
+//   ["k", "l"],
+//   ["n", "o"],
+//   // ["g"]
+// ];
 
-const source = "j";
-const destination = "n";
-const result = undirectedGraph(edges, source, destination);
-console.log(result);
+// const source = "j";
+// const destination = "n";
+// const result = undirectedGraph(edges, source, destination);
+// console.log(result);
 
-function buildGraph(edges) {
-  const graph = {};
+// function buildGraph(edges) {
+//   const graph = {};
 
-  for (let edge of edges) {
-    const [a, b] = edge;
-    if (!a || !b) {
-      if (a) graph[a] = [];
-      if (b) graph[b] = [];
-    } else {
-      if (!graph[a]) graph[a] = [];
-      if (!graph[b]) graph[b] = [];
+//   for (let edge of edges) {
+//     const [a, b] = edge;
+//     if (!a || !b) {
+//       if (a) graph[a] = [];
+//       if (b) graph[b] = [];
+//     } else {
+//       if (!graph[a]) graph[a] = [];
+//       if (!graph[b]) graph[b] = [];
 
-      graph[a].push(b);
-      graph[b].push(a);
+//       graph[a].push(b);
+//       graph[b].push(a);
+//     }
+//   }
+//   return graph;
+// }
+
+// function hasPath(graph, src, dst, visited) {
+//   if (src === dst) return true;
+//   if (visited.has(src)) return false;
+
+//   visited.add(src);
+
+//   for (let neighbour of graph[src]) {
+//     if (hasPath(graph, neighbour, dst, visited) === true) return true;
+//   }
+//   return false;
+// }
+
+const connectedComponentsCount = (graph) => {
+  let count = 0;
+  const visited = new Set();
+  for (let node in graph) {
+    if (explore(graph, node, visited) === true) {
+      count++;
     }
   }
-  return graph;
-}
+  return count;
+};
 
-function hasPath(graph, src, dst, visited) {
-  if (src === dst) return true;
-  if (visited.has(src)) return false;
+const graph = {
+  0: [8, 1, 5],
+  1: [0],
+  5: [0, 8],
+  8: [0, 5],
+  2: [3, 4],
+  3: [2, 4],
+  4: [3, 2],
+  9: [],
+  100: [],
+};
 
-  visited.add(src);
+const result = connectedComponentsCount(graph);
+console.log(result);
 
-  for (let neighbour of graph[src]) {
-    if (hasPath(graph, neighbour, dst, visited) === true) return true;
+function explore(graph, node, visited) {
+  if (visited.has(String(node))) return false;
+  visited.add(String(node));
+
+  for (let neighbour of graph[node]) {
+    explore(graph, neighbour, visited);
   }
-  return false;
+
+  return true;
 }
