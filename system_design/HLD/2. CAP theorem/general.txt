@@ -1,0 +1,6 @@
+1. Distributed Data store 
+2. Sharding
+3. Data Replication
+4. Master - slaves db 
+5. new SQL - Spanner, CockroachDB
+5. CDN

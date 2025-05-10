@@ -11,10 +11,11 @@
 11. Browser
 12. www
 13. web
-14. URL/URI
+14. URL/URI/URN => URI = (URN + URL) -> Universal Resource Identifier, Universal Resource Name, Universal Resource Name
 15. IP Address - IPv4 vs IPv6
 16. Routing: Routing is the process of determining the best path for data to travel from source to destination across networks.
 17. Router, Gateway
 18. IP and DHCP
 19. MAC and ARP
 20. Transmission media (wired/wireless)
+21. Apache vs Nginx

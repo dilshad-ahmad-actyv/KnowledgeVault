@@ -1,0 +1,57 @@
+1. API Gateway vs Load Balancer
+2. API Gateway 
+    - Request Routing
+    - API Composition (based on device eg. mobile or pc)
+    - Auth/OAuth
+    - Rate Limiting
+        - Manage burst limit
+        - API Throttling
+        - IP based blocking
+        - API Queues
+    - Service Discovery
+    - Request-response transformation
+    - Response caching
+    - Logging
+
+3. If API Gateway is a Single entry point, how does it handles millions of requests per second?
+4. Global DNS (AWS 53 route, Azure traffic manager, Akamai)
+5. Reverse Proxy vs API Gateway vs Load Balancer
+   - Reverse Proxy: A reverse proxy is a server that sits in front of one or more backend servers and forwards client requests to them. eg. NGINX, Apache
+   - Load Balancer: A load balancer is a traffic distributor that spreads client requests across multiple instances of a service to improve scalability, reliability, and fault tolerance.
+   - API Gateway: An API Gateway is a single entry point for all external clients into your system, especially in microservices architecture.
+
+
+
+                                Service Discovery
+                                      ^
+                                      |               |----Area Zone 1--------> Load Balancer -----> Services A instances
+                                      |               |               --------> Load Balancer -----> Services B instances
+                                      |               |               --------> Load Balancer -----> Services C instances
+                                      |               |
+                |-----Zone 1---------> API Gateway ---|
+                |                                     |                 
+                |                                     |                 
+                |                                     |-----Area Zone 2 --------> Load Balancer -----> Services A instances
+                |                                                       --------> Load Balancer -----> Services B instances
+                |                                                       --------> Load Balancer -----> Services C instances
+                |
+                |
+                |
+Client -> DNS -->
+                |
+                |
+                |
+                |
+                |
+                |
+                |
+                |
+                | --------Zone 2--------> Same as above
+
+
+e.g;
+
+api.myservice.com (Geo-routed DNS)
+    ↳ US → us-api.myservice.com (→ US Gateway)
+    ↳ EU → eu-api.myservice.com (→ EU Gateway)
+    ↳ Asia → asia-api.myservice.com (→ Asia Gateway)

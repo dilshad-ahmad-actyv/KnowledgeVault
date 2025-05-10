@@ -1,0 +1,2 @@
+1. API Gateway
+2. Load Balancer
