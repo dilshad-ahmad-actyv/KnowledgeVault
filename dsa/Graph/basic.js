@@ -524,16 +524,64 @@
 //   return false;
 // }
 
-const connectedComponentsCount = (graph) => {
-  let count = 0;
+// const connectedComponentsCount = (graph) => {
+//   let count = 0;
+//   const visited = new Set();
+//   for (let node in graph) {
+//     if (explore(graph, node, visited) === true) {
+//       count++;
+//     }
+//   }
+//   return count;
+// };
+
+// const graph = {
+//   0: [8, 1, 5],
+//   1: [0],
+//   5: [0, 8],
+//   8: [0, 5],
+//   2: [3, 4],
+//   3: [2, 4],
+//   4: [3, 2],
+//   9: [],
+//   100: [],
+// };
+
+// const result = connectedComponentsCount(graph);
+// console.log(result);
+
+// function explore(graph, node, visited) {
+//   if (visited.has(String(node))) return false;
+//   visited.add(String(node));
+
+//   for (let neighbour of graph[node]) {
+//     explore(graph, neighbour, visited);
+//   }
+
+//   return true;
+// }
+
+function largestComponent(graph) {
   const visited = new Set();
+
+  let max = -Infinity;
   for (let node in graph) {
-    if (explore(graph, node, visited) === true) {
-      count++;
-    }
+    const size = exploreSize(graph, node, visited);
+    if (size > max) max = size;
   }
+  return max;
+}
+
+function exploreSize(graph, node, visited, count = 1) {
+  if (visited.has(String(node))) return 0;
+  visited.add(String(node));
+
+  for (let neighbour of graph[node]) {
+    count += exploreSize(graph, neighbour, visited);
+  }
+
   return count;
-};
+}
 
 const graph = {
   0: [8, 1, 5],
@@ -547,16 +595,5 @@ const graph = {
   100: [],
 };
 
-const result = connectedComponentsCount(graph);
+const result = largestComponent(graph);
 console.log(result);
-
-function explore(graph, node, visited) {
-  if (visited.has(String(node))) return false;
-  visited.add(String(node));
-
-  for (let neighbour of graph[node]) {
-    explore(graph, neighbour, visited);
-  }
-
-  return true;
-}
