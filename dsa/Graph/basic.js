@@ -561,39 +561,87 @@
 //   return true;
 // }
 
-function largestComponent(graph) {
-  const visited = new Set();
+// function largestComponent(graph) {
+//   const visited = new Set();
 
-  let max = -Infinity;
-  for (let node in graph) {
-    const size = exploreSize(graph, node, visited);
-    if (size > max) max = size;
+//   let max = -Infinity;
+//   for (let node in graph) {
+//     const size = exploreSize(graph, node, visited);
+//     if (size > max) max = size;
+//   }
+//   return max;
+// }
+
+// function exploreSize(graph, node, visited, count = 1) {
+//   if (visited.has(String(node))) return 0;
+//   visited.add(String(node));
+
+//   for (let neighbour of graph[node]) {
+//     count += exploreSize(graph, neighbour, visited);
+//   }
+
+//   return count;
+// }
+
+// const graph = {
+//   0: [8, 1, 5],
+//   1: [0],
+//   5: [0, 8],
+//   8: [0, 5],
+//   2: [3, 4],
+//   3: [2, 4],
+//   4: [3, 2],
+//   9: [],
+//   100: [],
+// };
+
+// const result = largestComponent(graph);
+// console.log(result);
+
+const shortestPath = (edges, node, target) => {
+  const graph = buildGraph(edges);
+  const visited = new Set([node]);
+  const queue = [[node, 0]];
+
+  while (queue.length > 0) {
+    const [node, distance] = queue.shift();
+
+    if (node === target) return distance;
+
+    for (let neighbour of graph[node]) {
+      if (!visited.has(neighbour)) {
+        visited.add(neighbour);
+        queue.push([neighbour, distance + 1]);
+      }
+    }
   }
-  return max;
-}
-
-function exploreSize(graph, node, visited, count = 1) {
-  if (visited.has(String(node))) return 0;
-  visited.add(String(node));
-
-  for (let neighbour of graph[node]) {
-    count += exploreSize(graph, neighbour, visited);
-  }
-
-  return count;
-}
-
-const graph = {
-  0: [8, 1, 5],
-  1: [0],
-  5: [0, 8],
-  8: [0, 5],
-  2: [3, 4],
-  3: [2, 4],
-  4: [3, 2],
-  9: [],
-  100: [],
+  return -1;
 };
 
-const result = largestComponent(graph);
-console.log(result);
+const buildGraph = (edges) => {
+  const graph = {};
+
+  for (let edge of edges) {
+    const [a, b] = edge;
+    if (!graph[a]) graph[a] = [];
+    if (!graph[b]) graph[b] = [];
+
+    graph[a].push(b);
+    graph[b].push(a);
+  }
+  return graph;
+};
+
+const edges = [
+  ["w", "x"],
+  ["x", "y"],
+  ["z", "y"],
+  ["z", "v"],
+  ["w", "v"],
+];
+
+const source = "w";
+const target = "s";
+
+const shortest = shortestPath(edges, source, target);
+console.log(shortest);
