@@ -598,50 +598,125 @@
 // const result = largestComponent(graph);
 // console.log(result);
 
-const shortestPath = (edges, node, target) => {
-  const graph = buildGraph(edges);
-  const visited = new Set([node]);
-  const queue = [[node, 0]];
+// const shortestPath = (edges, node, target) => {
+//   const graph = buildGraph(edges);
+//   const visited = new Set([node]);
+//   const queue = [[node, 0]];
 
-  while (queue.length > 0) {
-    const [node, distance] = queue.shift();
+//   while (queue.length > 0) {
+//     const [node, distance] = queue.shift();
 
-    if (node === target) return distance;
+//     if (node === target) return distance;
 
-    for (let neighbour of graph[node]) {
-      if (!visited.has(neighbour)) {
-        visited.add(neighbour);
-        queue.push([neighbour, distance + 1]);
-      }
+//     for (let neighbour of graph[node]) {
+//       if (!visited.has(neighbour)) {
+//         visited.add(neighbour);
+//         queue.push([neighbour, distance + 1]);
+//       }
+//     }
+//   }
+//   return -1;
+// };
+
+// const buildGraph = (edges) => {
+//   const graph = {};
+
+//   for (let edge of edges) {
+//     const [a, b] = edge;
+//     if (!graph[a]) graph[a] = [];
+//     if (!graph[b]) graph[b] = [];
+
+//     graph[a].push(b);
+//     graph[b].push(a);
+//   }
+//   return graph;
+// };
+
+// const edges = [
+//   ["w", "x"],
+//   ["x", "y"],
+//   ["z", "y"],
+//   ["z", "v"],
+//   ["w", "v"],
+// ];
+
+// const source = "w";
+// const target = "s";
+
+// const shortest = shortestPath(edges, source, target);
+// console.log(shortest);
+
+// const a = "a";
+// const b = "b";
+
+// console.log(a < b);
+
+// const str = "dil129";
+
+// for (let i = 0; i < str.length; i++) {
+//   const isLowerAlpha = str[i] >= "a" && str[i] <= "z";
+//   const isNumeric = str[i] >= "0" && str[i] <= "9";
+//   console.log(str[i], isLowerAlpha, isNumeric);
+// }
+
+// function isFourDigitNumber(str) {
+//   if (str.length !== 4) return false;
+
+//   for (let i = 0; i < 4; i++) {
+//     const char = str[i];
+//     if (char < "0" || char > "9") return false;
+//   }
+//   return true;
+// }
+
+// const result = isFourDigitNumber("o001");
+// console.log(result);
+
+const islandCount = (grid) => {
+  const visited = new Set();
+  const rLen = grid.length;
+  const cLen = grid[0].length;
+  let count = 0;
+
+  for (let r = 0; r < rLen; r++) {
+    for (let c = 0; c < cLen; c++) {
+      const isIsland = exploreIsland(grid, r, c, rLen, cLen, visited);
+      if (isIsland === true) count++;
     }
   }
-  return -1;
+
+  return count;
 };
 
-const buildGraph = (edges) => {
-  const graph = {};
+function exploreIsland(grid, r, c, rLen, cLen, visited) {
+  const inboundRow = 0 <= r && r < rLen;
+  const inboundCol = 0 <= c && c < cLen;
 
-  for (let edge of edges) {
-    const [a, b] = edge;
-    if (!graph[a]) graph[a] = [];
-    if (!graph[b]) graph[b] = [];
+  if (!inboundRow || !inboundCol) return false;
+  if (grid[r][c] === "W") return false;
 
-    graph[a].push(b);
-    graph[b].push(a);
-  }
-  return graph;
-};
+  let position = r + "," + c;
+  if (visited.has(position)) return false;
+  visited.add(position);
 
-const edges = [
-  ["w", "x"],
-  ["x", "y"],
-  ["z", "y"],
-  ["z", "v"],
-  ["w", "v"],
+  exploreIsland(grid, r - 1, c, rLen, cLen, visited);
+  exploreIsland(grid, r + 1, c, rLen, cLen, visited);
+  exploreIsland(grid, r, c - 1, rLen, cLen, visited);
+  exploreIsland(grid, r, c + 1, rLen, cLen, visited);
+
+  return true;
+}
+
+const grid = [
+  ["W", "W", "W", "W", "W", "W"],
+  ["W", "L", "W", "W", "W", "W"],
+  ["W", "W", "W", "W", "L", "W"],
+  ["W", "W", "W", "L", "L", "W"],
+  ["W", "W", "W", "W", "W", "W"],
+  ["W", "W", "W", "W", "W", "W"],
+  ["W", "L", "W", "W", "L", "L"],
+  ["W", "W", "W", "W", "L", "L"],
 ];
 
-const source = "w";
-const target = "s";
-
-const shortest = shortestPath(edges, source, target);
-console.log(shortest);
+const result = islandCount(grid);
+console.log(result);
