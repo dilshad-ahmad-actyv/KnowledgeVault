@@ -672,51 +672,100 @@
 // const result = isFourDigitNumber("o001");
 // console.log(result);
 
-const islandCount = (grid) => {
-  const visited = new Set();
-  const rLen = grid.length;
-  const cLen = grid[0].length;
-  let count = 0;
+// const islandCount = (grid) => {
+//   const visited = new Set();
+//   const rLen = grid.length;
+//   const cLen = grid[0].length;
+//   let count = 0;
 
-  for (let r = 0; r < rLen; r++) {
-    for (let c = 0; c < cLen; c++) {
-      const isIsland = exploreIsland(grid, r, c, rLen, cLen, visited);
-      if (isIsland === true) count++;
+//   for (let r = 0; r < rLen; r++) {
+//     for (let c = 0; c < cLen; c++) {
+//       const isIsland = exploreIsland(grid, r, c, rLen, cLen, visited);
+//       if (isIsland === true) count++;
+//     }
+//   }
+
+//   return count;
+// };
+
+// function exploreIsland(grid, r, c, rLen, cLen, visited) {
+//   const inboundRow = 0 <= r && r < rLen;
+//   const inboundCol = 0 <= c && c < cLen;
+
+//   if (!inboundRow || !inboundCol) return false;
+//   if (grid[r][c] === "W") return false;
+
+//   let position = r + "," + c;
+//   if (visited.has(position)) return false;
+//   visited.add(position);
+
+//   exploreIsland(grid, r - 1, c, rLen, cLen, visited);
+//   exploreIsland(grid, r + 1, c, rLen, cLen, visited);
+//   exploreIsland(grid, r, c - 1, rLen, cLen, visited);
+//   exploreIsland(grid, r, c + 1, rLen, cLen, visited);
+
+//   return true;
+// }
+
+// const grid = [
+//   ["W", "W", "W", "W", "W", "W"],
+//   ["W", "L", "W", "W", "W", "W"],
+//   ["W", "W", "W", "W", "L", "W"],
+//   ["W", "W", "W", "L", "L", "W"],
+//   ["W", "W", "W", "W", "W", "W"],
+//   ["W", "W", "W", "W", "W", "W"],
+//   ["W", "L", "W", "W", "L", "L"],
+//   ["W", "W", "W", "W", "L", "L"],
+// ];
+
+// const result = islandCount(grid);
+// console.log(result);
+
+const minIsLand = (grid) => {
+  let minSize = Infinity;
+  const visited = new Set();
+
+  for (let i = 0; i < grid.length; i++) {
+    for (let j = 0; j < grid[0].length; j++) {
+      let size = exploreSize(grid, i, j, visited);
+      if (size > 0 && size < minSize) {
+        minSize = size;
+      }
     }
   }
-
-  return count;
+  return minSize === Infinity ? "No Island" : minSize;
 };
 
-function exploreIsland(grid, r, c, rLen, cLen, visited) {
-  const inboundRow = 0 <= r && r < rLen;
-  const inboundCol = 0 <= c && c < cLen;
+function exploreSize(grid, r, c, visited) {
+  const inBoundRow = r >= 0 && r < grid.length;
+  const inBoundCol = c >= 0 && c < grid[0].length;
+  if (!inBoundRow || !inBoundCol) return 0;
 
-  if (!inboundRow || !inboundCol) return false;
-  if (grid[r][c] === "W") return false;
+  if (grid[r][c] === "W") return 0;
 
   let position = r + "," + c;
-  if (visited.has(position)) return false;
+  if (visited.has(position)) return 0;
   visited.add(position);
 
-  exploreIsland(grid, r - 1, c, rLen, cLen, visited);
-  exploreIsland(grid, r + 1, c, rLen, cLen, visited);
-  exploreIsland(grid, r, c - 1, rLen, cLen, visited);
-  exploreIsland(grid, r, c + 1, rLen, cLen, visited);
-
-  return true;
+  let size = 1;
+  size += exploreSize(grid, r + 1, c, visited);
+  size += exploreSize(grid, r - 1, c, visited);
+  size += exploreSize(grid, r, c + 1, visited);
+  size += exploreSize(grid, r, c - 1, visited);
+  return size;
 }
 
 const grid = [
+  ["W", "W", "L", "L", "W", "W"],
+  ["W", "W", "L", "W", "W", "W"],
   ["W", "W", "W", "W", "W", "W"],
-  ["W", "L", "W", "W", "W", "W"],
-  ["W", "W", "W", "W", "L", "W"],
-  ["W", "W", "W", "L", "L", "W"],
+  ["W", "W", "L", "L", "L", "W"],
+  ["W", "W", "W", "L", "W", "W"],
+  ["W", "W", "L", "L", "W", "W"],
+  ["W", "L", "W", "L", "W", "W"],
+  ["W", "L", "L", "L", "W", "W"],
   ["W", "W", "W", "W", "W", "W"],
-  ["W", "W", "W", "W", "W", "W"],
-  ["W", "L", "W", "W", "L", "L"],
-  ["W", "W", "W", "W", "L", "L"],
 ];
 
-const result = islandCount(grid);
+const result = minIsLand(grid);
 console.log(result);
