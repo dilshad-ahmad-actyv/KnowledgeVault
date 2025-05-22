@@ -1,10 +1,21 @@
+// function printZigZag(n) {
+//   if (n === 0) return;
+//   console.log("Pre", n);
+//   printZigZag(n - 1);
+//   console.log("In", n);
+//   printZigZag(n - 1);
+//   console.log("Post", n);
+// }
+
+// printZigZag(2);
+
 function printZigZag(n) {
   if (n === 0) return;
-  console.log("Pre", n);
+  console.log("Pre ", n);
   printZigZag(n - 1);
-  console.log("In", n);
+  console.log("In ", n);
   printZigZag(n - 1);
-  console.log("Post", n);
+  console.log("Post ", n);
 }
 
 printZigZag(2);
