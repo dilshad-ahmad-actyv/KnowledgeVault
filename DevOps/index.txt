@@ -56,3 +56,7 @@ S	    Sharing	        Share knowledge, best practices, and responsibility across
 * Agile -> Iterative (Sprints, usually 1-4 weeks) -> is like designing and building a car one feature at a time, checking with users every step (e.g., “How’s the steering?”).
 
 * DevOps -> Continuous (CI/CD pipeline) -> is like setting up a factory that builds and delivers that car continuously and reliably to customers with automation, QA, and logistics.
+
+
+
+* Docker/Kubernetes/HelmChart/ISTIO/prometheus/Grafna/Kiali
